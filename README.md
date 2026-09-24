@@ -2,7 +2,7 @@
 
 Unsupervised topic clustering of banking customer messages, with an LLM
 in the loop to turn raw clusters into human-readable labels explored
-through an interactive app (link coming soon).
+through an interactive app.
 
 ## Business question
 
@@ -58,7 +58,7 @@ for going from "pile of raw text" to "structured, explorable topics" using:
 - **Clustering** to find structure with no labels required
 - **An LLM (Claude API)** to translate cluster centroids into plain-language
   labels and rationale, instead of a human eyeballing every cluster
-- **Streamlit** to make the result explorable instead of a static notebook (link coming soon)
+- **Streamlit** to make the result explorable instead of a static notebook (see app folder)
 
 ## Data
 
@@ -80,8 +80,8 @@ out to validate the discovered clusters later.
 
 ## Project structure
 
-```ß
 nlp-cluster-labeler/
+├── app/                # Streamlit app
 ├── data/
 │   ├── raw/            # gitignored — regenerate with data_pull.py
 │   └── processed/      # small, committed sample
@@ -89,7 +89,6 @@ nlp-cluster-labeler/
 │   ├── data_pull.py    # pulls BANKING77 from GitHub
 │   └── clean.py        # dedupes, standardizes columns
 ├── notebooks/          # exploration
-├── app/                # Streamlit app (later session)
 └── requirements.txt
 ```
 
@@ -110,3 +109,16 @@ python src/clean.py
 
 This pulls ~13,000 messages into `data/raw/banking77_raw.csv`, then cleans
 and writes a modeling-ready CSV to `data/processed/messages_clean.csv`.
+
+Clustering, validation, and AI labeling happen in the notebook under `notebooks/`.
+
+### Explore the results
+
+```bash
+streamlit run app/app.py
+```
+
+Opens an interactive explorer over the labeled topics — an Overview tab
+with corpus-level stats and topic-size/purity distributions, and a Topic
+Detail tab to drill into any single topic's sample messages and
+true-intent breakdown.
