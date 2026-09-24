@@ -1,11 +1,11 @@
-# Session 1: data pull + cleaning
 requests
 pandas
-
-# Coming in later sessions (uncomment as you get there):
-# scikit-learn        # TF-IDF + KMeans baseline clustering
-# sentence-transformers  # embeddings, if you want to go beyond TF-IDF
-# bertopic            # stretch option for topic modeling
-# anthropic           # Claude API for cluster auto-labeling
-# streamlit           # interactive app
-# python-dotenv       # load ANTHROPIC_API_KEY from .env locally
+scikit-learn
+ipykernel       
+matplotlib
+sentence-transformers  
+bertopic            
+anthropic           # Claude API for cluster auto-labeling
+streamlit           # interactive app
+streamlit-extras
+python-dotenv       # load ANTHROPIC_API_KEY from .env locally
